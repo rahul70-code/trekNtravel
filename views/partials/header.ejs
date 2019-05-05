@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <title>TraveltREK</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    </header>
+    <body>
+       <nav class="nav navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+   <a class="navbar-brand" href="/"><i class="fas fa-campground"></i>TrekNTravel
+      </a>
+      <div class="collapse navbar-collapse navbar-right">
+          <ul class="nav navbar-nav" style="padding-left: 900px">
+             <% if(!currentUser){ %>
+              <li><a href="/login">Login</a></li>
+              <li><a href="/register">Signup</a></li>
+            <%  } else { %>
+            <li><a href="#">Signed in as <strong><%= currentUser.username %></strong></a></li>
+              <li><a href="/logout">Logout</a></li>
+            <%  } %>
+          </ul>
+      </div>
+      
+  </div>
+</nav>
+<div class= "container">
+    <% if(error && error.length > 0){ %>
+<div class="alert alert-danger" role="alert">
+    <%= error %>
+</div>
+<% } %>
+<% if(success && success.length > 0){ %>
+<div class="alert alert-success" role="alert">
+    <%= success %>
+</div>
+<% } %>
+</div>

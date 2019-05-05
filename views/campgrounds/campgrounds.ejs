@@ -1,0 +1,42 @@
+<% include ../partials/header %> 
+<div class="container">
+<header class="jumbotron"> 
+<h1> Welcome to TrekNTravel</h1>
+<p>Campgrounds all across the world</p>
+<a class="btn btn-primary" href="/campgrounds/new">Add Campgrounds</a>
+</header>
+<div class="container">
+  <div class="row text-center" style= "display: flex; flex-wrap: wrap">
+ 
+<% campgrounds.forEach(function(cgrd){ %>
+
+  <div class="col-sm-6 col-md-3">
+    <div class="thumbnail">
+      <img src="<%= cgrd.image %>" alt="lll" style="height: 150px">
+      <div class="caption">
+        <h4><%= cgrd.title %></h4>
+        
+        <p><a href="/campgrounds/<%= cgrd._id %>" class="btn btn-primary" role="button">Read More</a> </p>
+      </div>
+    </div>
+  </div>
+
+<% }) %>
+</div>
+</div>
+
+
+ 
+ 
+ 
+
+
+
+
+<a href="/">Go to home page</a>
+</div>
+<% include ../partials/footer %> 
+
+
+
+

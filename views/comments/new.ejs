@@ -1,0 +1,20 @@
+<% include ../partials/header %> 
+
+
+<div class="container text-align-center">
+    <div class="col-4">
+    <div class="container" style="width: 500px","height: 50px", "padding: 30px">
+        <h1 style="text-align: center","padding: 30px">Add new comments to </h1>
+    <form action="/campgrounds/<%= campground._id %>/comments" method="POST">
+        <div class="form-group">
+            <input class="form-control" type="text" name="comment[text]" placeholder="text" required></div>
+    
+    <button class="btn btn-primary btn-block" >Submit</button>
+</form>
+        
+    </div>
+    
+
+</div>
+</div>
+<% include ../partials/footer %> 
