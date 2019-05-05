@@ -23,7 +23,7 @@ app.use(flash());
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
-mongoose.connect("mongodb+srv://travelntrek:alliswell@cluster0-blofl.mongodb.net/test?retryWrites=true",  { useNewUrlParser: true, useCreateIndex: true });
+mongoose.connect("mongodb+srv://travelntrek:alliswell5420@cluster0-blofl.mongodb.net/test?retryWrites=true",  { useNewUrlParser: true, useCreateIndex: true });
 // mongoose.connect("mongodb://localhost:27017/yelpcamp_db", { useNewUrlParser: true });
 // seedDB();
 
