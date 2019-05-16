@@ -11,10 +11,10 @@
 <% campgrounds.forEach(function(cgrd){ %>
 
   <div class="col-sm-6 col-md-3">
-    <div class="thumbnail">
-      <img src="<%= cgrd.image %>" alt="lll" style="height: 150px">
+    <div class="thumbnail" style="padding: 0px">
+      <img src="<%= cgrd.image %>" alt="lll" style="height: 150px, width: 100%">
       <div class="caption">
-        <h4><%= cgrd.title %></h4>
+        <h3><%= cgrd.title %></h3>
         
         <p><a href="/campgrounds/<%= cgrd._id %>" class="btn btn-primary" role="button">Read More</a> </p>
       </div>
