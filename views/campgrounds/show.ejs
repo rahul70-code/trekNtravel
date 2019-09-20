@@ -15,7 +15,7 @@
             
             <div class="caption">
                 <h4 class="pull-right"> ₹ <%= campground.price %> /Night</h4>
-                <a href="" <h4><%= campground.title %></h4></a>
+                <a href="" <h3><%= campground.title %></h3></a>
                 <p style="padding-top: 10px"> <%= campground.descrip %></p>
                 <p><em>Submitted by <%= campground.author.username %></em></p>
                 <% if(currentUser && campground.author.id.equals(currentUser._id)){ %>
