@@ -23,7 +23,7 @@ app.use(flash());
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
-mongoose.connect("mongodb+srv://travelntrek:alliswell@cluster0-blofl.mongodb.net/test?retryWrites=true",
+mongoose.connect("mongodb+srv://travelntrek:alliswell@cluster0-blofl.mongodb.net/TrekNTravel?retryWrites=true",
 { useNewUrlParser: true, useCreateIndex: true }).then(function(){
     console.log("connected to DB")}).catch(function(err){
         console.log("error", err.message);
