@@ -12,7 +12,8 @@ router.get("/register", function(req, res) {
 // REGISTER POST ROUTE
 router.post("/register", function(req, res) {
     var newUser = new User({username: req.body.username});
-    User.register(newUser, req.body.password, function(err, user){
+    var password = req.body.password;
+    User.register(newUser, password, function(err, user){
      if(err){
    req.flash("error", err.message);
       return res.render("authentication/register")
