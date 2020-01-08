@@ -13,7 +13,7 @@ var express    = require("express"),
     methodOveride = require("method-override"),
     PORT          = 3000;
     
-
+// Initialize Routes
 var campgroundRoutes = require("./routes/campgrounds"),
     commentRoutes    = require("./routes/comments"),
     authRoutes       = require("./routes/index");
@@ -24,15 +24,16 @@ app.use(flash());
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
+
+// Connected to MongoDB database using Mongoose ODM
 mongoose.connect("mongodb+srv://travelntrek:alliswell@cluster0-blofl.mongodb.net/TrekNTravel?retryWrites=true",
 { useNewUrlParser: true, useCreateIndex: true }).then(function(){
-    console.log("connected to DB")}).catch(function(err){
+    console.log("connected to TrekNTravel DB")}).catch(function(err){
         console.log("error", err.message);
     });
 
 // mongoose.connect("mongodb://localhost:27017/yelpcamp_db", { useNewUrlParser: true });
 // seedDB();
-
 
 //PASSPORT CONFIG
 app.use(require("express-session")({
@@ -41,14 +42,15 @@ app.use(require("express-session")({
  saveUninitialized: false,
 }));
 
+// use passport strategy
 app.use(passport.initialize());
 app.use(passport.session());
 
 passport.use(new localStrategy(User.authenticate()));
-
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+// use flash to display messages
 app.use(function(req, res, next){
  res.locals.currentUser = req.user;
  res.locals.error= req.flash("error");
@@ -56,12 +58,13 @@ app.use(function(req, res, next){
  next();
 })
 
+// Use Routes
 app.use(campgroundRoutes);
 app.use(commentRoutes);
 app.use(authRoutes);
 
 
 app.listen(PORT, function(){
-    console.log("Server started!");
+    console.log('Server started at Port 3000!');
 });
 
