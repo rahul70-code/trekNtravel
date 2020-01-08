@@ -10,7 +10,8 @@ var express    = require("express"),
     Comment    = require("./models/comment"),
     User       = require("./models/user"),
     seedDB    = require("./seeds"),
-    methodOveride = require("method-override");
+    methodOveride = require("method-override"),
+    PORT          = 3000;
     
 
 var campgroundRoutes = require("./routes/campgrounds"),
@@ -60,7 +61,7 @@ app.use(commentRoutes);
 app.use(authRoutes);
 
 
-app.listen(process.env.PORT,process.env.IP, function(){
+app.listen(PORT, function(){
     console.log("Server started!");
 });
 
