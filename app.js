@@ -27,7 +27,7 @@ app.use(express.static(__dirname + "/public"));
 
 // Connected to MongoDB database using Mongoose ODM
 mongoose.connect("mongodb+srv://travelntrek:alliswell@cluster0-blofl.mongodb.net/TrekNTravel?retryWrites=true",
-{ useNewUrlParser: true, useCreateIndex: true }).then(function(){
+{ useNewUrlParser: true, useCreateIndex: true,useUnifiedTopology: true }).then(function(){
     console.log("connected to TrekNTravel DB")}).catch(function(err){
         console.log("error", err.message);
     });
