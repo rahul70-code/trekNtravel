@@ -10,8 +10,10 @@ var express    = require("express"),
     Comment    = require("./models/comment"),
     User       = require("./models/user"),
     seedDB    = require("./seeds"),
-    methodOveride = require("method-override"),
-    PORT          = 3000;
+    methodOveride = require("method-override");
+
+    // to configure .env file to store sensitive data
+    require('dotenv').config();
     
 // Initialize Routes
 var campgroundRoutes = require("./routes/campgrounds"),
@@ -26,7 +28,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
 
 // Connected to MongoDB database using Mongoose ODM
-mongoose.connect("mongodb+srv://travelntrek:alliswell@cluster0-blofl.mongodb.net/TrekNTravel?retryWrites=true",
+mongoose.connect(process.env.trekNTravelDB,
 { useNewUrlParser: true, useCreateIndex: true,useUnifiedTopology: true }).then(function(){
     console.log("connected to TrekNTravel DB")}).catch(function(err){
         console.log("error", err.message);
@@ -37,7 +39,7 @@ mongoose.connect("mongodb+srv://travelntrek:alliswell@cluster0-blofl.mongodb.net
 
 //PASSPORT CONFIG
 app.use(require("express-session")({
- secret: "Rahul IAS",
+ secret: process.env.session_secret,
  resave: false,
  saveUninitialized: false,
 }));
@@ -64,7 +66,7 @@ app.use(commentRoutes);
 app.use(authRoutes);
 
 
-app.listen(PORT, function(){
+app.listen(process.env.PORT, function(){
     console.log('Server started at Port 3000!');
 });
 
