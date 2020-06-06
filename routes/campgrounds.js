@@ -1,12 +1,12 @@
 var express = require("express");
 var router = express.Router();
 var Campground = require("../models/campground");
-var middleware = require("../middleware/index.js")
+var middleware = require("../middleware/index.js");
 
 //HOME PAGE
 router.get("/", function (req, res) {
     res.render("campgrounds/home");
-})
+});
 
 // campgrounds page
 router.get("/campgrounds", function (req, res) {
@@ -16,7 +16,7 @@ router.get("/campgrounds", function (req, res) {
         } else {
             res.render("campgrounds/campgrounds", { campgrounds: allcampgrounds, currentUser: req.user });
         }
-    })
+    });
 })
 
 // post a new campground
